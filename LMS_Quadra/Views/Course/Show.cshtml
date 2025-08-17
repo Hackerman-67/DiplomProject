@@ -1,0 +1,97 @@
+﻿@model LMS_Quadra.Domain.Entities.Course
+
+@{
+	ViewData["Title"] = Model.Title;
+}
+
+<div id="wrapper">
+	<div id="main">
+		<div class="inner">
+			<section>
+				<header class="major">
+					<h2>Информация о выбранном курсе</h2>
+				</header>
+				<h3>Наименование курса: "@Model.Title"</h3>
+				<p class="lead">@Model.Description</p>
+				<div class="return_to_courses">
+				<a asp-controller="Course"
+				   asp-action="Index">
+					<i class="fas fa-arrow-left mr-2"></i> Вернуться к списку курсов
+				</a>
+				</div>
+			
+				<h4>Темы курса:</h4>
+				@if (User.IsInRole("Admin"))
+				{
+					<a class="create_course_content" asp-controller="CourseContent" asp-action="Create" asp-route-courseId="@Model.Id"><i class="fas fa-plus"></i> Добавить тему</a>
+				}
+				<table>
+					@foreach (var content in Model.CourseContents)
+					{
+						<tr>
+							<div>
+								<td>
+									<a class="edit_delete_links" asp-controller="CourseContent" asp-action="Show" asp-route-courseId="@Model.Id" asp-route-id="@content.Id">
+										@content.Title
+									</a>
+								</td>
+								@if (User.IsInRole("Admin"))
+								{
+									<td>
+									<a class="edit_delete_links" asp-controller="CourseContent" asp-action="Edit" asp-route-courseId="@Model.Id" asp-route-id="@content.Id"><i class="fas fa-pencil-alt"></i> Изменить</a>
+										<form class="delete_form_course" asp-controller="CourseContent"
+										asp-action="Delete"
+										asp-route-courseId="@Model.Id" 
+										asp-route-id="@content.Id"
+										method="post">
+											<input type="hidden" name="id" value="@content.Id" />
+											<input type="hidden" name="courseId" value="@Model.Id" />
+										<a href="#" class="edit_delete_links_with_margin"
+										   onclick="event.preventDefault();
+											if(confirm('Вы уверены?')) {
+											this.closest('form').submit();}"><i class="fas fa-trash-alt"></i> Удалить</a>
+										</form>
+									</td>}
+
+							</div>
+						</tr>
+					}
+				</table>
+		<div>
+			
+		</div>
+			@if (User.IsInRole("Admin"))
+			{
+				<section>
+					<h4>Вопросы курса:</h4>
+			<a asp-controller="Question"
+			   asp-action="Index"
+			   asp-route-courseId="@Model.Id">
+					<i class="fas fa-question-circle"></i> Управление тестовыми вопросами
+			</a>
+		</section>
+			}
+			@if (!User.IsInRole("Admin")) 
+			{ 
+			@if (ViewBag.IsTestAvailable ?? false)
+			{
+				<h4>Тестирование:</h4>
+				<a class="btn btn-primary"
+				   asp-controller="Test"
+				   asp-action="Start"
+				   asp-route-courseId="@Model.Id">
+					<i class="fas fa-pencil-alt"></i> Пройти тест
+				</a>
+			}
+			else
+			{
+			<h5>
+				Ваш результат:
+				<strong>@ViewBag.TestResult%</strong>
+			</h5>
+			}
+			}
+		</div>
+	</div>
+	@await Html.PartialAsync("_SidebarPartial")
+</div>

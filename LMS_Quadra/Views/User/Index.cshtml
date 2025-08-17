@@ -1,0 +1,61 @@
+﻿@model IEnumerable<LMS_Quadra.Models.UserViewModel>
+
+    @{
+        ViewData["Title"] = "Пользователи";
+    }
+    <div id="wrapper">
+        <div id="main">
+            <div class="inner">
+                <section>
+                    <header class="major">
+                        <h2>Список пользователей</h2>
+                    <a asp-action="Create"><i class="fas fa-plus"></i> Создать пользователя</a>
+                    </header>
+                 <table>
+                 <thead>
+                      <tr>
+                          <th>Логин</th>
+                          <th>Роль</th>
+                      </tr>
+                 </thead>
+                    <tbody>
+                     @foreach (var user in Model)
+                        {
+                            <tr>
+                                <td>@user.UserName</td>
+                                <td>@user.Role</td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@user.Id" class="edit_delete_links"><i class="fas fa-pencil-alt"></i> Изменить</a>
+                                    <a href="#" onclick="deleteUser('@user.Id')"><i class="fas fa-trash-alt"></i> Удалить</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                 </table>
+            </section>
+            </div>
+        </div>
+            @await Html.PartialAsync("_SidebarPartial")
+    </div>
+
+@section Scripts {
+    <script>
+        function deleteUser(userId) {
+            if (confirm('Удалить пользователя?')) {
+                const form = document.createElement('form');
+                form.method = 'post';
+                form.action = `/User/Delete/${userId}`;
+
+                const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+                const csrfInput = document.createElement('input');
+                csrfInput.type = 'hidden';
+                csrfInput.name = '__RequestVerificationToken';
+                csrfInput.value = token;
+
+                form.appendChild(csrfInput);
+                document.body.appendChild(form);
+                form.submit();
+            }
+        }
+    </script>
+}

@@ -1,0 +1,61 @@
+﻿@using LMS_Quadra.Domain.Entities
+@{
+	IEnumerable<Worker>? Workers = ViewBag.Workers;
+	ViewData["Title"] = "Сотрудники";
+}
+
+<div id="wrapper">
+	<div id="main">
+		<div class="inner">
+			<section>
+				<header class="major">
+					<h2>Список сотрудников</h2>
+					@if (User.IsInRole("Admin"))
+					{
+						<a class="link_to_create" asp-controller="Worker" asp-action="Create"><i class="fas fa-plus"></i> Добавить запись</a>
+					}
+				</header>
+
+
+				<table>
+					<thead>
+						<tr>
+							<th>Номер</th>
+							<th>ФИО</th>
+							<th>Дата рождения</th>
+							<th>Отдел</th>
+							<th>Должность</th>
+							<th>Контактный номер телефона</th>
+							@if (User.IsInRole("Admin"))
+							{
+								<th>Имя пользователя</th>
+							}
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var worker in Workers)
+						{
+							<tr>
+								<td>@worker.Id</td>
+								<td>@worker.Name</td>
+								<td>@worker.DateBirth.ToString("dd.MM.yyyy")</td>
+								<td>@worker.Department?.Title</td>
+								<td>@worker.WorkerPosition?.Title</td>
+								<td>@worker.PhoneNumber</td>
+								@if (User.IsInRole("Admin"))
+								{
+									<td>@worker.User?.UserName</td>
+									<td>
+										<a class="edit_delete_links_with_margin" asp-controller="Worker" asp-action="Edit" asp-route-id="@worker.Id"><i class="fas fa-pencil-alt"></i> Изменить</a><br />
+										<a class="edit_delete_links_with_margin" asp-controller="Worker" asp-action="Delete" asp-route-id="@worker.Id" onclick="return confirm('Вы уверены?');"><i class="fas fa-trash-alt"></i> Удалить</a>
+									</td>
+								}
+							</tr>
+						}
+					</tbody>
+				</table>
+			</section>
+		</div>
+	</div>
+	@await Html.PartialAsync("_SidebarPartial")
+</div>

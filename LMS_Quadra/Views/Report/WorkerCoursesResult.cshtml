@@ -1,0 +1,48 @@
+﻿@using LMS_Quadra.Domain.Entities
+@model List<CourseCompletion>
+
+<div id="wrapper">
+    <div id="main">
+        <div class="inner">
+            <section>
+                <header class="major">
+                    <h2>Пройденные курсы сотрудника: @ViewBag.SelectedWorker</h2>
+                </header>
+
+                @if (Model.Any())
+                {
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Курс</th>
+                                <th>Дата завершения</th>
+                                <th>Результат</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Course.Title</td>
+                                    <td>@item.DateCompleted?.ToString("dd.MM.yyyy")</td>
+                                    <td>@item.Result%</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <div class="alert alert-info">
+                        Сотрудник не прошел ни одного курса
+                    </div>
+                }
+
+                <a asp-action="WorkerCoursesReport" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Назад к выбору сотрудника
+                </a>
+            </section>
+        </div>
+    </div>
+    @await Html.PartialAsync("_SidebarPartial")
+</div>

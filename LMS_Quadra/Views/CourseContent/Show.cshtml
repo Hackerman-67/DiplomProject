@@ -1,0 +1,25 @@
+﻿@model LMS_Quadra.Domain.Entities.CourseContent
+
+@{
+	ViewData["Title"] = Model.Title;
+}
+
+<div id="wrapper">
+	<div id="main">
+		<div class="inner">
+			<section>
+				<header class="major">
+					<h2>@Model.Title</h2>
+					<a asp-controller="Course"
+					   asp-action="Show"
+					   asp-route-id="@Model.CourseId"
+					   class="btn btn-secondary">
+						<i class="fas fa-times"></i> Вернуться к списку тем
+					</a>
+				</header>
+				@Html.Raw(Model.LinksToTheory)
+			</section>
+		</div>
+	</div>
+	@await Html.PartialAsync("_SidebarPartial")
+</div>

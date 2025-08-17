@@ -1,0 +1,45 @@
+﻿@model LMS_Quadra.Domain.Entities.Department
+
+@{
+    ViewData["Title"] = "Создание структурного подразделения";
+}
+
+<div id="wrapper">
+    <div id="main">
+        <div class="inner">
+            <section>
+                <header class="major">
+                    <h2>Создание нового структурного подразделения</h2>
+                </header>
+
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="create_form_element">
+                        <label asp-for="Title" class="control-label">Наименование</label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+
+                    <div class="create_form_element">
+                        <label asp-for="Head" class="control-label">Руководитель</label>
+                        <input asp-for="Head" class="form-control" />
+                        <span asp-validation-for="Head" class="text-danger"></span>
+                    </div>
+
+                    <div class="create_form_element">
+                        <label asp-for="PhoneNumber" class="control-label">Телефон</label>
+                        <input asp-for="PhoneNumber" class="form-control" placeholder="+7-XXX-XXX-XX-XX" data-mask="+7-000-000-00-00" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+
+                    <div class="create_form_buttons">
+                        <button type="submit" class="submit_button"><i class="fas fa-save"></i> Создать</button>
+                        <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Вернуться к списку отделов</a>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+    @await Html.PartialAsync("_SidebarPartial")
+</div>

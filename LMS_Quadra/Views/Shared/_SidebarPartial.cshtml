@@ -1,0 +1,88 @@
+﻿<div id="sidebar">
+	<div class="inner">
+		<nav id="menu">
+			<header class="major">
+				<h2>Главное меню</h2>
+			</header>
+			@if (User.IsInRole("Admin"))
+			{
+				<ul class="user_with_padding">
+					<li class="user_with_padding"><a asp-area="" asp-controller="User" asp-action="Index">Пользователи</a></li>
+				</ul>
+			}
+			@if (User.IsInRole("Admin") || User.IsInRole("HR"))
+			{
+				<ul>	
+					<li><a asp-area="" asp-controller="Department" asp-action="Index">Структурные подразделения</a></li>
+					<li><a asp-area="" asp-controller="WorkerPosition" asp-action="Index">Должности</a></li>
+					<li><a asp-area="" asp-controller="Worker" asp-action="Index">Сотрудники</a></li>
+					<li><a asp-area="" asp-controller="Course" asp-action="Index">Курсы</a></li>
+					<li><a asp-area="" asp-controller="CourseCompletion" asp-action="Index">Прохождение курсов</a></li>
+				</ul>
+			}
+			@if (User.IsInRole("Employee"))
+			{
+				<h2>Курсы</h2>
+				<ul>
+					<li><a asp-area="" asp-controller="Course" asp-action="Index">Список доступных курсов</a></li>
+				</ul>
+			}
+			<h2 class="reports_header">Отчёты</h2>
+			@if (User.IsInRole("Employee") || User.IsInRole("HR")) 
+			{
+				<ul>
+					<li><a asp-area="" asp-controller="Report" asp-action="CompletedCourses">Результаты завершённых курсов</a></li>
+					<li><a asp-area="" asp-controller="Report" asp-action="DepartmentProgress">Рейтинг по отделу</a></li>
+					@if (User.IsInRole("HR"))
+					{
+						<li class="user_with_padding"><a asp-area="" asp-controller="Report" asp-action="DepartmentAverage">Средний балл по отделу</a></li>
+					}
+					@if (User.IsInRole("Employee"))
+					{
+					<li><a asp-area="" asp-controller="Report" asp-action="DepartmentAverage">Средний балл по отделу</a></li>
+					}
+				</ul>
+			}
+			@if (!User.IsInRole("Employee"))
+			{
+				<ul>
+					<li><a asp-area="" asp-controller="Report" asp-action="WorkerCoursesReport">Пройденные курсы заданным сотрудником</a></li>
+					<li><a asp-area="" asp-controller="Report" asp-action="CourseAverageReport">Средний балл прохождения курса</a></li>
+					<li><a asp-area="" asp-controller="Report" asp-action="CourseTopResultReport">Максимальный балл по заданному курсу</a></li>
+					<li><a asp-area="" asp-controller="Report" asp-action="DepartmentReport">Количество пройденных курсов по отделам</a></li>
+					<li><a asp-area="" asp-controller="Report" asp-action="WorkerPeriodReport">Количество курсов, пройденных сотрудником</a></li>
+				</ul>
+			}
+
+			@if (User.Identity.IsAuthenticated)
+			{
+				<div class="userinfo_sidebar">
+					@{
+						var user = await _userManager.GetUserAsync(User);
+						var worker = await _dataManager.WorkerRepository.GetByUserIdAsync(user.Id);
+						var department = worker?.DepartmentId != null 
+							? await _dataManager.DepartmentRepository.GetDepartmentByIdAsync(worker.DepartmentId) 
+							: null;
+					}
+					
+					<p class="user-detail">
+						<strong>Текущий пользователь:</strong><br>
+						@worker?.Name
+					</p>
+					<p class="user-detail">
+						<strong>Логин:</strong><br>
+						@user.UserName
+					</p>
+					<p class="user-detail">
+						<strong>Структурное подразделение:</strong><br>
+						@department?.Title
+					</p>
+					
+					<a asp-controller="Account" asp-action="Logout" class="btn-logout">
+						<i class="fas fa-sign-out-alt"></i> Выйти
+					</a>
+				</div>
+			}
+		</nav>
+	</div>
+</div>

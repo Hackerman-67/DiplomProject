@@ -1,0 +1,50 @@
+﻿@model LoginViewModel
+@{
+	string strTitle = "Авторизация";
+	ViewBag.Title = strTitle;
+}
+
+@if (User.Identity?.IsAuthenticated == true)
+{
+	<script>
+		window.location.href = '@Url.Action("Index", "Home")';
+	</script>
+}
+
+<div id="wrapper" class="auth">
+    <div class="auth-background"></div> 
+    <div class="div-box auth-card">
+        <div class="auth-header">
+            <i class="fas fa-user-lock auth-icon"></i>
+            <h1>@strTitle</h1>
+        </div>
+        <form asp-area="" asp-controller="Account" asp-action="Login" method="post" asp-route-returnUrl="@ViewBag.ReturnUrl">
+            <div asp-validation-summary="All" class="auth-validation-summary"></div>
+            <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+
+            <div class="auth-field-group">
+                <label asp-for="UserName" class="auth-label"></label>
+                <div class="auth-input-wrapper">
+                    <i class="fas fa-user auth-input-icon"></i>
+                    <input asp-for="UserName" class="auth-input" placeholder="Введите логин" />
+                </div>
+                <span asp-validation-for="UserName" class="auth-validation"></span>
+            </div>
+
+            <div class="auth-field-group">
+                <label asp-for="Password" class="auth-label"></label>
+                <div class="auth-input-wrapper">
+                    <i class="fas fa-lock auth-input-icon"></i>
+                    <input asp-for="Password" class="auth-input" placeholder="Введите пароль" />
+                </div>
+                <span asp-validation-for="Password" class="auth-validation"></span>
+            </div>
+
+            <div class="auth-actions">
+                <button type="submit" class="auth-submit-btn">
+                    <i class="fas fa-sign-in-alt"></i> Войти
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

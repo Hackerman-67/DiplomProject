@@ -1,0 +1,101 @@
+﻿@using LMS_Quadra.Domain.Entities
+
+@{
+	List<Course> activeCourses = ViewBag.ActiveCourses ?? new List<Course>();
+	List<Course> completedCourses = ViewBag.CompletedCourses ?? new List<Course>();
+	ViewData["Title"] = "Курсы";
+}
+
+<div id="wrapper">
+	<div id="main">
+		<div class="inner">
+			<section>
+				<header class="major">
+					<h2>Список курсов</h2>
+					@if (User.IsInRole("Admin"))
+					{
+						<a class="link_to_create" asp-controller="Course" asp-action="Create"><i class="fas fa-plus"></i> Добавить запись</a>
+					}
+				</header>
+				<table>
+					<thead>
+						<tr>
+							<th>Номер</th>
+							<th>Наименование</th>
+							<th>Описание</th>
+							@if (User.IsInRole("Admin"))
+							{
+								<th>Количество вопросов в тесте</th>
+								<th>Минимальный балл для прохождения</th>
+							}
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var course in activeCourses)
+						{
+							<tr>
+								<td>@course.Id</td>
+								<td>@course.Title</td>
+								<td>@course.Description</td>
+								@if (User.IsInRole("Admin"))
+								{ 
+									<td>@course.NumQuestions</td>
+									<td>@course.MinResult</td>
+								}
+								<td>
+									<a class="edit_delete_links_with_margin" asp-controller="Course" asp-action="Show" asp-route-id="@course.Id"><i class="fas fa-book-open"></i> Открыть</a>
+									@if (User.IsInRole("Admin"))
+									{
+										<br />
+
+										<a class="edit_delete_links_with_margin" asp-controller="Course" asp-action="Edit" asp-route-id="@course.Id"><i class="fas fa-pencil-alt"></i> Изменить</a>
+
+										<br />
+										<a class="edit_delete_links_with_margin" asp-controller="Course" asp-action="Delete" asp-route-id="@course.Id" onclick="return confirm('Вы уверены?');"><i class="fas fa-trash-alt"></i> Удалить</a>
+									}
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</section>
+			@if (completedCourses.Any())
+			{
+				<section class="mt-5">
+					<header class="major">
+						<h2>Пройденные курсы</h2>
+					</header>
+					<table class="completed-courses">
+						<thead>
+							<tr>
+								<th>Номер</th>
+								<th>Наименование</th>
+								<th>Описание</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var course in completedCourses)
+							{
+								<tr>
+									<td>@course.Id</td>
+									<td>@course.Title</td>
+									<td>@course.Description</td>
+									<td>
+										<a class="edit_delete_links_with_margin"
+										   asp-controller="Course"
+										   asp-action="Show"
+										   asp-route-id="@course.Id">
+											<i class="fas fa-book-open"></i> Открыть
+										</a>
+									</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</section>
+			}
+		</div>
+	</div>
+	@await Html.PartialAsync("_SidebarPartial")
+</div>

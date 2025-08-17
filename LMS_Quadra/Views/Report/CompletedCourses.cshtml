@@ -1,0 +1,36 @@
+﻿@using LMS_Quadra.Domain.Entities
+@model List<CourseCompletion>
+
+<div id="wrapper">
+    <div id="main">
+        <div class="inner">
+            <section>
+                <header class="major">
+                    <h2>Результаты прохождения курсов</h2>
+                </header>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Курс</th>
+                            <th>Дата завершения</th>
+                            <th>Результат</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Course.Title</td>
+                                <td>@item.DateCompleted?.ToString("dd.MM.yyyy")</td>
+                                <td>@item.Result%</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                
+            </section>
+        </div>
+    </div>
+    @await Html.PartialAsync("_SidebarPartial")
+</div>

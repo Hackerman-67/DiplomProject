@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+@Html.AntiForgeryToken()
+<html>
+<head>
+	@await Html.PartialAsync("_MetaPartial")
+	@await Html.PartialAsync("_CssPartial")
+</head>
+<body class="is-preload">
+	@RenderBody()
+	@await Html.PartialAsync("_ScriptsPartial")
+	@await RenderSectionAsync("Scripts", required:false)
+</body>
+</html>

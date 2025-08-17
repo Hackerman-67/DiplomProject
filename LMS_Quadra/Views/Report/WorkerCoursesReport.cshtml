@@ -1,0 +1,27 @@
+﻿
+<div id="wrapper">
+    <div id="main">
+        <div class="inner">
+            <section>
+                <header class="major">
+                    <h2>Отчёт по пройденным курсам заданным сотрудником</h2>
+                </header>
+
+                <form method="post">
+                    <div class="create_form_element">
+                        <label>Выберите сотрудника:</label>
+                        <select name="workerId"
+                                asp-items="@ViewBag.Workers"
+                                class="form-control">
+                            <option value="">Выберите сотрудника</option>
+                        </select>
+                    </div>
+                    <div class="create_form_buttons">
+                        <button type="submit" class="btn btn-primary">Сформировать отчёт</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+    @await Html.PartialAsync("_SidebarPartial")
+</div>

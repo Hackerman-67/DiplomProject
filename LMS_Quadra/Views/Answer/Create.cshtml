@@ -1,0 +1,47 @@
+﻿@model LMS_Quadra.Domain.Entities.Answer
+
+@{
+    ViewData["Title"] = "Добавление ответа";
+}
+
+<div id="wrapper">
+    <div id="main">
+        <div class="inner">
+            <section>
+                <header class="major">
+                    <h2>Добавление ответа</h2>
+                </header>
+
+                <form asp-action="Create" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <input type="hidden" asp-for="QuestionId" />
+
+                    <div class="create_form_element">
+                        <label asp-for="Wording">Текст ответа</label>
+                        <input asp-for="Wording" class="form-control" />
+                        <span asp-validation-for="Wording" class="text-danger"></span>
+                    </div>
+
+                    <div class="create_form_element">
+                        <div class="form-check">
+                            <input asp-for="IsCorrect" class="form-check-input" />
+                            <label asp-for="IsCorrect" class="form-check-label">Правильный ответ</label>
+                        </div>
+                    </div>
+
+                    <div class="create_form_buttons">
+                        <button type="submit" class="submit_button"><i class="fas fa-save"></i> Создать</button>
+                        <a asp-controller="Question"
+                           asp-action="Edit"
+                           asp-route-courseId="@ViewContext.RouteData.Values["courseId"]"
+                           asp-route-id="@Model.QuestionId"
+                           class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Вернуться к вопросу
+                        </a>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+    @await Html.PartialAsync("_SidebarPartial")
+</div>

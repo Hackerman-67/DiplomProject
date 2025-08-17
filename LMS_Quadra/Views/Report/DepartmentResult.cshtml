@@ -1,0 +1,44 @@
+﻿@using LMS_Quadra.Domain.Entities
+@model List<Department>
+
+<div id="wrapper">
+    <div id="main">
+        <div class="inner">
+            <section>
+                <header class="major">
+                    <h2>Результаты за период: @ViewBag.StartDate - @ViewBag.EndDate</h2>
+                </header>
+
+                @if (Model.Any())
+                {
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Отдел</th>
+                                <th>Пройдено курсов</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var department in Model)
+                            {
+                                <tr>
+                                    <td>@department.Title</td>
+                                    <td>@department.CompletedCoursesCount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <div class="alert alert-info">
+                        Нет данных за выбранный период
+                    </div>
+                }
+
+                <a asp-action="DepartmentReport" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Вернуться назад</a>
+            </section>
+        </div>
+    </div>
+    @await Html.PartialAsync("_SidebarPartial")
+</div>

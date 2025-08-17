@@ -1,0 +1,293 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\css\\fontawesome-all.min.css",
+      "PackagePath": "staticwebassets\\css\\fontawesome-all.min.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\css\\main.css",
+      "PackagePath": "staticwebassets\\css\\main.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\img\\pic01.jpg",
+      "PackagePath": "staticwebassets\\img\\pic01.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\img\\pic02.jpg",
+      "PackagePath": "staticwebassets\\img\\pic02.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\img\\pic03.jpg",
+      "PackagePath": "staticwebassets\\img\\pic03.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\img\\pic04.jpg",
+      "PackagePath": "staticwebassets\\img\\pic04.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\img\\pic05.jpg",
+      "PackagePath": "staticwebassets\\img\\pic05.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\img\\pic06.jpg",
+      "PackagePath": "staticwebassets\\img\\pic06.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\img\\pic07.jpg",
+      "PackagePath": "staticwebassets\\img\\pic07.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\img\\pic08.jpg",
+      "PackagePath": "staticwebassets\\img\\pic08.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\img\\pic09.jpg",
+      "PackagePath": "staticwebassets\\img\\pic09.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\img\\pic10.jpg",
+      "PackagePath": "staticwebassets\\img\\pic10.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\img\\pic11.jpg",
+      "PackagePath": "staticwebassets\\img\\pic11.jpg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\js\\breakpoints.min.js",
+      "PackagePath": "staticwebassets\\js\\breakpoints.min.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\js\\browser.min.js",
+      "PackagePath": "staticwebassets\\js\\browser.min.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\js\\util.js",
+      "PackagePath": "staticwebassets\\js\\util.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\base\\_page.scss",
+      "PackagePath": "staticwebassets\\scss\\base\\_page.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\base\\_reset.scss",
+      "PackagePath": "staticwebassets\\scss\\base\\_reset.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\base\\_typography.scss",
+      "PackagePath": "staticwebassets\\scss\\base\\_typography.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\components\\_actions.scss",
+      "PackagePath": "staticwebassets\\scss\\components\\_actions.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\components\\_box.scss",
+      "PackagePath": "staticwebassets\\scss\\components\\_box.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\components\\_button.scss",
+      "PackagePath": "staticwebassets\\scss\\components\\_button.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\components\\_contact.scss",
+      "PackagePath": "staticwebassets\\scss\\components\\_contact.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\components\\_features.scss",
+      "PackagePath": "staticwebassets\\scss\\components\\_features.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\components\\_form.scss",
+      "PackagePath": "staticwebassets\\scss\\components\\_form.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\components\\_icon.scss",
+      "PackagePath": "staticwebassets\\scss\\components\\_icon.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\components\\_icons.scss",
+      "PackagePath": "staticwebassets\\scss\\components\\_icons.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\components\\_image.scss",
+      "PackagePath": "staticwebassets\\scss\\components\\_image.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\components\\_list.scss",
+      "PackagePath": "staticwebassets\\scss\\components\\_list.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\components\\_mini-posts.scss",
+      "PackagePath": "staticwebassets\\scss\\components\\_mini-posts.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\components\\_pagination.scss",
+      "PackagePath": "staticwebassets\\scss\\components\\_pagination.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\components\\_posts.scss",
+      "PackagePath": "staticwebassets\\scss\\components\\_posts.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\components\\_row.scss",
+      "PackagePath": "staticwebassets\\scss\\components\\_row.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\components\\_section.scss",
+      "PackagePath": "staticwebassets\\scss\\components\\_section.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\components\\_table.scss",
+      "PackagePath": "staticwebassets\\scss\\components\\_table.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\layout\\_banner.scss",
+      "PackagePath": "staticwebassets\\scss\\layout\\_banner.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\layout\\_footer.scss",
+      "PackagePath": "staticwebassets\\scss\\layout\\_footer.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\layout\\_header.scss",
+      "PackagePath": "staticwebassets\\scss\\layout\\_header.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\layout\\_main.scss",
+      "PackagePath": "staticwebassets\\scss\\layout\\_main.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\layout\\_menu.scss",
+      "PackagePath": "staticwebassets\\scss\\layout\\_menu.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\layout\\_sidebar.scss",
+      "PackagePath": "staticwebassets\\scss\\layout\\_sidebar.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\layout\\_wrapper.scss",
+      "PackagePath": "staticwebassets\\scss\\layout\\_wrapper.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\libs\\_breakpoints.scss",
+      "PackagePath": "staticwebassets\\scss\\libs\\_breakpoints.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\libs\\_functions.scss",
+      "PackagePath": "staticwebassets\\scss\\libs\\_functions.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\libs\\_html-grid.scss",
+      "PackagePath": "staticwebassets\\scss\\libs\\_html-grid.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\libs\\_mixins.scss",
+      "PackagePath": "staticwebassets\\scss\\libs\\_mixins.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\libs\\_vars.scss",
+      "PackagePath": "staticwebassets\\scss\\libs\\_vars.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\libs\\_vendor.scss",
+      "PackagePath": "staticwebassets\\scss\\libs\\_vendor.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\scss\\main.scss",
+      "PackagePath": "staticwebassets\\scss\\main.scss"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\uploads\\da8f2cb7-0886-403f-b2ad-55215fc3ab9c_gistogr1.png",
+      "PackagePath": "staticwebassets\\uploads\\da8f2cb7-0886-403f-b2ad-55215fc3ab9c_gistogr1.png"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\webfonts\\fa-brands-400.eot",
+      "PackagePath": "staticwebassets\\webfonts\\fa-brands-400.eot"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\webfonts\\fa-brands-400.svg",
+      "PackagePath": "staticwebassets\\webfonts\\fa-brands-400.svg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\webfonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\webfonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\webfonts\\fa-brands-400.woff",
+      "PackagePath": "staticwebassets\\webfonts\\fa-brands-400.woff"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\webfonts\\fa-brands-400.woff2",
+      "PackagePath": "staticwebassets\\webfonts\\fa-brands-400.woff2"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\webfonts\\fa-regular-400.eot",
+      "PackagePath": "staticwebassets\\webfonts\\fa-regular-400.eot"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\webfonts\\fa-regular-400.svg",
+      "PackagePath": "staticwebassets\\webfonts\\fa-regular-400.svg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\webfonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\webfonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\webfonts\\fa-regular-400.woff",
+      "PackagePath": "staticwebassets\\webfonts\\fa-regular-400.woff"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\webfonts\\fa-regular-400.woff2",
+      "PackagePath": "staticwebassets\\webfonts\\fa-regular-400.woff2"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\webfonts\\fa-solid-900.eot",
+      "PackagePath": "staticwebassets\\webfonts\\fa-solid-900.eot"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\webfonts\\fa-solid-900.svg",
+      "PackagePath": "staticwebassets\\webfonts\\fa-solid-900.svg"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\webfonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\webfonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\webfonts\\fa-solid-900.woff",
+      "PackagePath": "staticwebassets\\webfonts\\fa-solid-900.woff"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\LMS_Quadra\\LMS_Quadra\\wwwroot\\webfonts\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\webfonts\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.LMS_Quadra.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.LMS_Quadra.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.LMS_Quadra.props",
+      "PackagePath": "build\\LMS_Quadra.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.LMS_Quadra.props",
+      "PackagePath": "buildMultiTargeting\\LMS_Quadra.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.LMS_Quadra.props",
+      "PackagePath": "buildTransitive\\LMS_Quadra.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

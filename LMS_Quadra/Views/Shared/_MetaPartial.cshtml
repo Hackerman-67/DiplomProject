@@ -1,0 +1,8 @@
+﻿
+@inject IConfiguration configuration
+@{
+	AppConfig? appConfig = configuration.GetSection("Project").Get<AppConfig>();
+}
+<title>@(ViewBag.Title ?? appConfig?.Company.CompanyName)</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />

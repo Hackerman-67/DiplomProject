@@ -1,0 +1,102 @@
+﻿@using LMS_Quadra.Domain.Entities
+@using Microsoft.AspNetCore.Identity
+@model LMS_Quadra.Domain.Entities.Worker
+
+@{
+    ViewData["Title"] = "Редактирование сотрудника";
+}
+
+<div id="wrapper">
+    <div id="main">
+        <div class="inner">
+            <section>
+                <header class="major">
+                    <h2>Редактирование сотрудника</h2>
+                </header>
+
+                <form asp-action="Edit">
+                    <input type="hidden" asp-for="Id" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="create_form_element">
+                        <label asp-for="Name" class="control-label">ФИО сотрудника</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="create_form_element">
+                        <label asp-for="DateBirth" class="control-label">Дата рождения</label>
+                        <input asp-for="DateBirth" type="date" class="form-control" />
+                        <span asp-validation-for="DateBirth" class="text-danger"></span>
+                    </div>
+
+                    <div class="create_form_element">
+                        <label asp-for="DepartmentId" class="control-label">Отдел</label>
+                        <select asp-for="DepartmentId">
+                            <option value="">-- Выберите отдел --</option>
+                            @if (ViewBag.Departments != null)
+                            {
+                                foreach (var entity in ViewBag.Departments as IEnumerable<Department>)
+                                {
+                                    <option value="@entity.Id"
+                                            selected="@(entity.Id == Model?.DepartmentId)">
+                                        @entity.Title
+                                    </option>
+                                }
+                            }
+                        </select>
+                        <span asp-validation-for="DepartmentId" class="text-danger"></span>
+                    </div>
+
+                    <div class="create_form_element">
+                        <label asp-for="WorkerPositionId" class="control-label">Должность</label>
+                        <select asp-for="WorkerPositionId">
+                            <option value="">-- Выберите должность --</option>
+                            @if (ViewBag.WorkerPositions != null)
+                            {
+                                foreach (var entity in ViewBag.WorkerPositions as IEnumerable<WorkerPosition>)
+                                {
+                                    <option value="@entity.Id"
+                                            selected="@(entity.Id == Model?.WorkerPositionId)">
+                                        @entity.Title
+                                    </option>
+                                }
+                            }
+                        </select>
+                        <span asp-validation-for="WorkerPositionId" class="text-danger"></span>
+                    </div>
+
+                    <div class="create_form_element">
+                        <label asp-for="PhoneNumber" class="control-label">Номер телефона</label>
+                        <input asp-for="PhoneNumber" class="form-control" placeholder="+7 (XXX) XXX-XX-XX" data-mask="+7-000-000-00-00" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+
+                    <div class="create_form_element">
+                        <label asp-for="UserId" class="control-label">Логин пользователя</label>
+                        <select asp-for="UserId">
+                            <option value="">-- Выберите логин пользователя --</option>
+                            @if (ViewBag.Users != null)
+                            {
+                                foreach (var entity in ViewBag.Users as IEnumerable<IdentityUser>)
+                                {
+                                    <option value="@entity.Id"
+                                            selected="@(entity.Id == Model?.UserId)">
+                                        @entity.UserName
+                                    </option>
+                                }
+                            }
+                        </select>
+                        <span asp-validation-for="UserId" class="text-danger"></span>
+                    </div>
+
+                    <div class="create_form_buttons">
+                        <button type="submit" class="submit_button"><i class="fas fa-save"></i> Сохранить</button>
+                        <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Вернуться к списку сотрудников</a>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+    @await Html.PartialAsync("_SidebarPartial")
+</div>

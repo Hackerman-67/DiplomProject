@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Результат тестирования";
+}
+
+<div id="wrapper">
+    <div id="main">
+        <div class="inner">
+            <section>
+                <div>
+                    <div>
+                        <div>
+                            <h2>
+                                @(ViewBag.IsSuccess ? "Тест пройден!" : "Тест не пройден")
+                            </h2>
+                        </div>
+                        <div>
+                            <div>
+                                <div class="create_form_element">
+                                    <h4>Результат: @ViewBag.Percent.ToString("0.0")%</h4>
+                                </div>
+                                <div class="create_form_element">
+                                    <h4>Минимальный проходной балл: @ViewBag.MinResult%</h4>
+                                </div>
+                            </div>
+                            <div class="text-center mt-4">
+                                <a asp-controller="Course"
+                                   asp-action="Show"
+                                   asp-route-id="@ViewBag.CourseId"
+                                   class="btn btn-primary">
+                                    <i class="fas fa-arrow-left"></i> Вернуться к курсу
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    @await Html.PartialAsync("_SidebarPartial")
+</div>

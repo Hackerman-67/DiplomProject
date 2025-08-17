@@ -1,0 +1,47 @@
+﻿@using LMS_Quadra.Domain.Entities
+@model List<Worker>
+
+<div id="wrapper">
+    <div id="main">
+        <div class="inner">
+            <section>
+                <header class="major">
+                    <h2>Средние результаты по отделу</h2>
+                </header>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Сотрудник</th>
+                            <th>Средний балл</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var worker in Model)
+                        {
+                            <tr style="@(worker.Id == ViewBag.CurrentWorkerId ? "background: #FFE6E7" : "")">
+                                <td>
+                                    @worker.Name
+                                    @if (worker.Id == ViewBag.CurrentWorkerId)
+                                    {
+                                        <span class="badge badge-primary">(Вы)</span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (worker.AverageResult.HasValue)
+                                    {
+                                        <span>@Math.Round(worker.AverageResult.Value, 1)%</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">Нет данных</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+    @await Html.PartialAsync("_SidebarPartial")
+</div>

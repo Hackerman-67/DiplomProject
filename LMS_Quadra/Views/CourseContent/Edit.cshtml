@@ -1,0 +1,67 @@
+﻿@model LMS_Quadra.Domain.Entities.CourseContent
+
+@{
+    ViewData["Title"] = "Редактирование темы";
+}
+<script src="https://cdn.tiny.cloud/1/omw7wfp2586k5kbcyf98b0uposca1amy327vdvyqayi6iy0u/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+
+<div id="wrapper">
+    <div id="main">
+        <div class="inner">
+            <section>
+                <header class="major">
+                    <h2>Редактирование темы</h2>
+                </header>
+
+                <form asp-action="Edit" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="CourseId" />
+
+                    <div class="create_form_element">
+                        <label asp-for="Title"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+
+                    <div class="create_form_element">
+                        <label asp-for="LinksToTheory"></label>
+                        <textarea asp-for="LinksToTheory" class="form-control"></textarea>
+                        <span asp-validation-for="LinksToTheory" class="text-danger"></span>
+                    </div>
+
+                    <div class="create_form_buttons">
+                        <button type="submit" class="submit_button"><i class="fas fa-save"></i> Сохранить</button>
+                        <a asp-controller="Course"
+                           asp-action="Show"
+                           asp-route-id="@Model.CourseId"
+                           class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Вернуться к курсу
+                        </a>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+    @await Html.PartialAsync("_SidebarPartial")
+</div>
+@section Scripts {
+    <script>
+        tinymce.init({
+          selector: 'textarea',
+          language: 'ru',
+          plugins: [
+            'autolink', 'charmap', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'wordcount',
+            
+          ],
+          toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | addcomment showcomments | align lineheight | checklist numlist bullist indent outdent | removeformat',
+          tinycomments_mode: 'embedded',
+          tinycomments_author: 'Author name',
+          mergetags_list: [
+            { value: 'First.Name', title: 'First Name' },
+            { value: 'Email', title: 'Email' },
+          ],
+          ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
+        });
+    </script>
+}

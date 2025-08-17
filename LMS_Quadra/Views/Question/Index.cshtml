@@ -1,0 +1,66 @@
+﻿@model IEnumerable<LMS_Quadra.Domain.Entities.Question>
+
+@{
+    ViewData["Title"] = "Вопросы курса";
+    var courseId = ViewBag.CourseId;
+}
+
+<div id="wrapper">
+    <div id="main">
+        <div class="inner">
+            <section>
+                <header class="major">
+                    <h2>Список тестовых вопросов к курсу</h2>
+                </header>
+                <a class="create_course_content" asp-action="Create"
+                   asp-route-courseId="@courseId">
+                    <i class="fas fa-plus"></i> Добавить вопрос
+                </a>
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Формулировка вопроса</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Wording</td>
+                                    <td>
+                                        <a class="edit_delete_links" asp-action="Edit"
+                                           asp-route-courseId="@courseId"
+                                           asp-route-id="@item.Id">
+                                            <i class="fas fa-pencil-alt"></i> Изменить
+                                        </a>
+                                        </td>
+                                        <td>
+                                        <form class="delete_form_course" asp-action="Delete" asp-route-courseId="@courseId"
+                                              asp-route-id="@item.Id"
+                                              method="post"
+                                              onsubmit="return confirm('Удалить вопрос?');">
+                                            <input type="hidden" name="id" value="@item.Id" />
+                                            <input type="hidden" name="courseId" value="@courseId" />
+                                            <a href="#" class="edit_delete_links_with_margin"
+                                               onclick="event.preventDefault();
+											if(confirm('Вы уверены?')) {
+											this.closest('form').submit();}"><i class="fas fa-trash-alt"></i> Удалить</a>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <a asp-controller="Course"
+               asp-action="Show"
+               asp-route-id="@courseId">
+                <i class="fas fa-arrow-left"></i> Назад к курсу
+                </a>
+            </section>
+
+        </div>
+    </div>
+    @await Html.PartialAsync("_SidebarPartial")
+</div>

@@ -1,0 +1,48 @@
+﻿@using LMS_Quadra.Domain.Entities
+@{
+	IEnumerable<WorkerPosition>? workerPositions = ViewBag.WorkerPositions;
+	ViewData["Title"] = "Должности";
+}
+
+<div id="wrapper">
+	<div id="main">
+		<div class="inner">
+			<section>
+				<header class="major">
+					<h2>Список должностей</h2>
+					@if (User.IsInRole("Admin"))
+					{
+						<a class="link_to_create" asp-controller="WorkerPosition" asp-action="Create"><i class="fas fa-plus"></i> Добавить запись</a>
+					}
+				</header>
+
+
+				<table>
+					<thead>
+						<tr>
+							<th>Номер</th>
+							<th>Наименование</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var workerPosition in workerPositions)
+						{
+							<tr>
+								<td>@workerPosition.Id</td>
+								<td>@workerPosition.Title</td>
+								@if (User.IsInRole("Admin"))
+								{
+									<td>
+										<a class="edit_delete_links" asp-controller="WorkerPosition" asp-action="Edit" asp-route-id="@workerPosition.Id"><i class="fas fa-pencil-alt"></i> Изменить</a>
+										<a class="edit_delete_links" asp-controller="WorkerPosition" asp-action="Delete" asp-route-id="@workerPosition.Id" onclick="return confirm('Вы уверены?');"><i class="fas fa-trash-alt"></i> Удалить</a>
+									</td>
+								}
+							</tr>
+						}
+					</tbody>
+				</table>
+			</section>
+		</div>
+	</div>
+	@await Html.PartialAsync("_SidebarPartial")
+</div>

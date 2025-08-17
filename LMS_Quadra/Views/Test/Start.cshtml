@@ -1,0 +1,49 @@
+﻿@model List<LMS_Quadra.Domain.Entities.Question>
+
+<div id="wrapper">
+	<div id="main">
+		<div class="inner">
+			<section>
+                <div>
+                    <h2>Тестирование по курсу</h2>
+                    <form asp-controller="Test" asp-action="Submit" asp-route-courseId="@ViewBag.CourseId" method="post">
+                        @Html.AntiForgeryToken()
+
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            <input type="hidden" name="questionIds" value="@Model[i].Id" />
+                            <div class="card mb-3">
+                                <div class="card-header bg-primary text-white">
+                                    <h5 class="mb-0">Вопрос @(i + 1): @Model[i].Wording</h5>
+                                </div>
+                                <div class="card-body">
+                                    @foreach (var answer in Model[i].Answers)
+                                    {
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input"
+                                                   type="radio"
+                                                   name="selectedAnswers[@Model[i].Id]"
+                                                   id="question_@Model[i]_Id_answer_@answer.Id"
+                                                   value="@answer.Id"
+                                                   required />
+                                            <label class="form-check-label" for="question_@Model[i]_Id_answer_@answer.Id">
+                                                @answer.Wording
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        }
+
+                        <div class="create_form_buttons">
+                            <button type="submit" class="btn btn-success btn-lg">
+                                <i class="fas fa-check-circle"></i> Завершить тестирование
+                            </button>
+                        </div>
+                    </form>
+                </div>
+			</section>
+		</div>
+	</div>
+	@await Html.PartialAsync("_SidebarPartial")
+</div>

@@ -1,0 +1,106 @@
+﻿@model LMS_Quadra.Domain.Entities.Question
+
+@{
+    ViewData["Title"] = "Редактирование вопроса";
+}
+
+<div id="wrapper">
+    <div id="main">
+        <div class="inner">
+            <section>
+                <header class="major">
+                    <h2>Редактирование вопроса</h2>
+                </header>
+
+                <form asp-action="Edit" method="post" 
+                asp-route-courseId="@Model.CourseId"
+                asp-route-id="@Model.Id">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <input type="hidden" asp-for="CourseId" />
+                    <input type="hidden" asp-for="Id" />
+
+                    <div class="create_form_element">
+                        <label asp-for="Wording">Текст вопроса</label>
+                        <input asp-for="Wording"></input>
+                        <span asp-validation-for="Wording" class="text-danger"></span>
+                    </div>
+
+                    
+
+                    <div class="create_form_buttons">
+                        <button type="submit" class="submit_button"><i class="fas fa-save"></i> Сохранить</button>
+                        <a asp-controller="Question"
+                           asp-action="Index"
+                           asp-route-courseId="@Model.CourseId">
+                            <i class="fas fa-arrow-left"></i> Вернуться к списку вопросов
+                        </a>
+                    </div>
+                </form>
+                </section>
+                
+                <h3>Варианты ответа:</h3>
+                <div class="form-group">
+                <a class="create_course_content"
+                       asp-controller="Answer"
+                       asp-action="Create"
+                       asp-route-courseId="@Model.CourseId"
+                       asp-route-questionId="@Model.Id">
+                        <i class="fas fa-plus"></i> Добавить вариант ответа
+                    </a>
+                </div>
+                <div>
+                    @foreach (var answer in Model.Answers)
+                    {
+                       
+                        <div>
+                            
+                                <input type="text"
+                                       value="@answer.Wording"
+                                       class="form-control"
+                                       readonly />
+                                
+                            <table>
+                                <tr>
+                                    <td>
+                                    <a asp-controller="Answer"
+                                       asp-action="Edit"
+                                       asp-route-courseId="@Model.CourseId"
+                                       asp-route-questionId="@Model.Id"
+                                       asp-route-answerId="@answer.Id">
+                                        <i class="fas fa-pencil-alt"></i> Изменить
+                                    </a>
+                                    </td>
+                                    <td>
+                                    <form class="delete_form_course" asp-controller="Answer"
+                                          asp-action="Delete"
+                                          asp-route-courseId="@Model.CourseId"
+                                          asp-route-questionId="@Model.Id"
+                                          asp-route-answerId="@answer.Id"
+                                          method="post"
+                                          class="d-inline">
+                                        <input type="hidden" name="answerId" value="@answer.Id" />
+                                        <input type="hidden" name="questionId" value="@Model.Id" />
+                                        <input type="hidden" name="courseId" value="@Model.CourseId" />
+                                        <a href="#" class="edit_delete_links_with_margin"
+                                           onclick="event.preventDefault();
+											if(confirm('Вы уверены?')) {
+											this.closest('form').submit();}"><i class="fas fa-trash-alt"></i> Удалить</a>
+                                    </form>
+                                    </td>
+                                    <td>
+                            
+                            
+                                <input type="checkbox"
+                                @(answer.IsCorrect ? "checked" : "")
+                                       disabled />
+                                    <label class="table_for_answers">Правильный ответ</label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    }
+                </div>
+        </div>
+    </div>
+    @await Html.PartialAsync("_SidebarPartial")
+</div>

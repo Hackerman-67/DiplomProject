@@ -1,0 +1,52 @@
+﻿@model LMS_Quadra.Domain.Entities.Course
+
+@{
+    ViewData["Title"] = "Редактирование курса";
+}
+
+<div id="wrapper">
+    <div id="main">
+        <div class="inner">
+            <section>
+                <header class="major">
+                    <h2>Редактирование общей информации о курсе</h2>
+                </header>
+
+                <form asp-action="Edit">
+                    <input type="hidden" asp-for="Id" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="create_form_element">
+                        <label asp-for="Title" class="control-label">Наименование</label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+
+                    <div class="create_form_element">
+                        <label asp-for="Description" class="control-label">Описание</label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <div class="create_form_element">
+                        <label asp-for="NumQuestions" class="control-label">Количество вопросов</label>
+                        <input asp-for="NumQuestions" class="form-control" type="number" min="1" step="1" />
+                        <span asp-validation-for="NumQuestions" class="text-danger"></span>
+                    </div>
+
+                    <div class="create_form_element">
+                        <label asp-for="MinResult" class="control-label">Минимальный балл</label>
+                        <input asp-for="MinResult" class="form-control" type="number" step="0.01" inputmode="decimal" min="0" max="100" />
+                        <span asp-validation-for="MinResult" class="text-danger"></span>
+                    </div>
+
+                    <div class="create_form_buttons">
+                        <button type="submit" class="submit_button"><i class="fas fa-save"></i> Сохранить</button>
+                        <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Вернуться к списку курсов</a>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+    @await Html.PartialAsync("_SidebarPartial")
+</div>

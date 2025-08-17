@@ -1,0 +1,70 @@
+﻿@using LMS_Quadra.Domain.Entities
+@model LMS_Quadra.Domain.Entities.CourseCompletion
+
+@{
+    ViewData["Title"] = "Назначение прохождения курса";
+}
+
+<div id="wrapper">
+    <div id="main">
+        <div class="inner">
+            <section>
+                <header class="major">
+                    <h2>Назначение прохождения курса</h2>
+                </header>
+
+                <form asp-controller="CourseCompletion" asp-action="Create" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                    <div class="create_form_element">
+                        <label asp-for="CourseId" class="control-label">Курс</label>
+                        <select asp-for="CourseId">
+                            <option value="">Выберите курс</option>
+                            @if (ViewBag.Courses != null)
+                            {
+                                foreach (var entity in ViewBag.Courses as IEnumerable<Course>)
+                                {
+                                    <option value="@entity.Id"
+                                            selected="@(entity.Id == Model?.CourseId)">
+                                        @entity.Title
+                                    </option>
+                                }
+                            }
+                        </select>
+                        <span asp-validation-for="CourseId" class="text-danger"></span>
+                    </div>
+
+                    <div class="create_form_element">
+                        <label asp-for="WorkerId" class="control-label">Сотрудник</label>
+                        <select asp-for="WorkerId">
+                            <option value="">Выберите сотрудника</option>
+                            @if (ViewBag.Workers != null)
+                            {
+                                foreach (var entity in ViewBag.Workers as IEnumerable<Worker>)
+                                {
+                                    <option value="@entity.Id"
+                                            selected="@(entity.Id == Model?.WorkerId)">
+                                        @entity.Name
+                                    </option>
+                                }
+                            }
+                        </select>
+                        <span asp-validation-for="WorkerId" class="text-danger"></span>
+                    </div>
+
+                    <div class="create_form_element">
+                        <label asp-for="DateOpen" class="control-label">Дата открытия</label>
+                        <input asp-for="DateOpen" type="date" class="form-control" />
+                        <span asp-validation-for="DateOpen" class="text-danger"></span>
+                    </div>
+
+                    <div class="create_form_buttons">
+                        <button type="submit" class="submit_button"><i class="fas fa-save"></i> Создать</button>
+                        <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Вернуться к списку назначенных курсов</a>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+    @await Html.PartialAsync("_SidebarPartial")
+</div>

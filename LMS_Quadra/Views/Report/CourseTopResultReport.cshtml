@@ -1,0 +1,26 @@
+﻿<div id="wrapper">
+    <div id="main">
+        <div class="inner">
+            <section>
+                <header class="major">
+                    <h2>Лучший результат прохождения курса</h2>
+                </header>
+
+                <form method="post">
+                    <div class="create_form_element">
+                        <label>Наименование курса:</label>
+                        <select name="courseId"
+                                asp-items="@ViewBag.Courses"
+                                class="form-control">
+                            <option value="">- Выберите курс -</option>
+                        </select>
+                    </div>
+                    <div class="create_form_buttons">
+                        <button type="submit" class="btn btn-primary">Сформировать отчёт</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+    @await Html.PartialAsync("_SidebarPartial")
+</div>

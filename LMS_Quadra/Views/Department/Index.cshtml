@@ -1,0 +1,52 @@
+﻿@using LMS_Quadra.Domain.Entities
+@{
+	IEnumerable<Department>? departments = ViewBag.Departments;
+	ViewData["Title"] = "Структурные подразделения";
+}
+
+<div id="wrapper">
+	<div id="main">
+		<div class="inner">
+			<section>
+				<header class="major">
+					<h2>Список структурных подразделений</h2>
+					@if (User.IsInRole("Admin"))
+					{
+						<a class="link_to_create" asp-controller="Department" asp-action="Create"><i class="fas fa-plus"></i> Добавить запись</a>
+					}
+				</header>
+
+
+				<table>
+					<thead>
+						<tr>
+							<th>Номер</th>
+							<th>Наименование</th>
+							<th>Руководитель</th>
+							<th>Контактный номер телефона</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var department in departments)
+						{
+							<tr>
+								<td>@department.Id</td>
+								<td>@department.Title</td>
+								<td>@department.Head</td>
+								<td>@department.PhoneNumber</td>
+								@if (User.IsInRole("Admin"))
+								{
+									<td>
+								<a class="edit_delete_links" asp-controller="Department" asp-action="Edit" asp-route-id="@department.Id"><i class="fas fa-pencil-alt"></i> Изменить</a><br />
+								<a class="edit_delete_links" asp-controller="Department" asp-action="Delete" asp-route-id="@department.Id" onclick="return confirm('Вы уверены?');"><i class="fas fa-trash-alt"></i> Удалить</a>
+									</td>
+								}
+						</tr>
+					}
+				</tbody>
+			</table>
+			</section>
+		</div>
+	</div>
+	@await Html.PartialAsync("_SidebarPartial")
+</div>

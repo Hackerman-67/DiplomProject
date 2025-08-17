@@ -1,0 +1,48 @@
+﻿@using LMS_Quadra.Domain.Entities
+@{
+	IEnumerable<CourseCompletion>? CourseCompletions = ViewBag.CourseCompletions;
+	ViewData["Title"] = "Информация о прохождении курсов";
+}
+
+<div id="wrapper">
+	<div id="main">
+		<div class="inner">
+			<section>
+				<header class="major">
+					<h2>Информация о прохождении курсов</h2>
+					<a class="link_to_create" asp-controller="CourseCompletion" asp-action="Create"><i class="fas fa-plus"></i> Назначить прохождение курса</a>
+				</header>
+
+
+				<table>
+					<thead>
+						<tr>
+							<th>Курс</th>
+							<th>Сотрудник</th>
+							<th>Дата открытия курса</th>
+							<th>Дата прохождения курса</th>
+							<th>Результат</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var courseCompletion in CourseCompletions)
+						{
+							<tr>
+								<td>@courseCompletion.Course?.Title</td>
+								<td>@courseCompletion.Worker?.Name</td>
+								<td>@courseCompletion.DateOpen.ToString("dd.MM.yyyy")</td>
+								<td>@courseCompletion.DateCompleted?.ToString("dd.MM.yyyy")</td>
+								<td>@courseCompletion.Result</td>
+								<td>
+									<a class="edit_delete_links_with_margin" asp-controller="CourseCompletion" asp-action="Edit" asp-route-id="@courseCompletion.Id"><i class="fas fa-pencil-alt"></i> Изменить</a><br />
+									<a class="edit_delete_links_with_margin" asp-controller="CourseCompletion" asp-action="Delete" asp-route-id="@courseCompletion.Id" onclick="return confirm('Вы уверены?');"><i class="fas fa-trash-alt"></i> Удалить</a>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</section>
+		</div>
+	</div>
+	@await Html.PartialAsync("_SidebarPartial")
+</div>

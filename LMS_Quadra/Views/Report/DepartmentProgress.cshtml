@@ -1,0 +1,38 @@
+﻿@using LMS_Quadra.Domain.Entities
+@model List<Worker>
+
+<div id="wrapper">
+    <div id="main">
+        <div class="inner">
+            <section>
+                <header class="major">
+                    <h2>Прогресс сотрудников отдела</h2>
+                </header>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Сотрудник</th>
+                            <th>Пройдено курсов</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var worker in Model)
+                        {
+                            <tr style="@(worker.Id == ViewBag.CurrentWorkerId ? "background: #FFE6E7" : "")">
+                                <td>
+                                    @worker.Name
+                                    @if (worker.Id == ViewBag.CurrentWorkerId)
+                                    {
+                                        <span>(Вы)</span>
+                                    }
+                                </td>
+                                <td>@worker.CompletedCoursesCount</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+    @await Html.PartialAsync("_SidebarPartial")
+</div>

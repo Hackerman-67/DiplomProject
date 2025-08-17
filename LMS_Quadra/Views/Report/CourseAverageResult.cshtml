@@ -1,0 +1,24 @@
+﻿<div id="wrapper">
+    <div id="main">
+        <div class="inner">
+            <section>
+                <header class="major">
+                    <h2>Результаты по курсу: @ViewBag.CourseTitle</h2>
+                </header>
+
+                <div class="alert @((ViewBag.AverageResult ?? 0) > 0 ? "alert-info" : "alert-warning")">
+                    <h4>Средний балл: @Math.Round(ViewBag.AverageResult ?? 0, 1)%</h4>
+                    @if ((ViewBag.AverageResult ?? 0) == 0)
+                    {
+                        <p class="mb-0">Курс ещё не был пройден сотрудниками</p>
+                    }
+                </div>
+
+                <a asp-action="CourseAverageReport" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Выбрать другой курс
+                </a>
+            </section>
+        </div>
+    </div>
+    @await Html.PartialAsync("_SidebarPartial")
+</div>

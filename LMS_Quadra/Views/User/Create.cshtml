@@ -1,0 +1,51 @@
+﻿@model LMS_Quadra.Models.CreateUserViewModel
+
+@{
+    ViewData["Title"] = "Создание пользователя";
+}
+
+<div id="wrapper">
+    <div id="main">
+        <div class="inner">
+            <section>
+                <header class ="major">
+                    <h2>Создание пользователя</h2>
+                </header>
+                    <form asp-action="Create" method="post">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+
+                        <div class="create_form_element">
+                            <label asp-for="UserName" class="form-label"></label>
+                            <input asp-for="UserName" class="form-control" />
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+
+                        <div class="create_form_element">
+                            <label asp-for="Password" class="form-label"></label>
+                            <input asp-for="Password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="create_form_element">
+                            <label asp-for="SelectedRole" class="form-label"></label>
+                            <select asp-for="SelectedRole"
+                                    asp-items="Model.AvailableRoles"
+                                    class="form-select">
+                                <option value="">-- Выберите роль --</option>
+                            </select>
+                            <span asp-validation-for="SelectedRole" class="text-danger"></span>
+                        </div>
+
+                        <div class="create_form_buttons">
+                            <button type="submit" class="submit_button"><i class="fas fa-save"></i> Создать</button>
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Вернуться к списку пользователей
+                        </a>
+                        </div>
+                    </form>
+
+            </section>
+        </div>
+    </div>
+    @await Html.PartialAsync("_SidebarPartial")
+</div>

@@ -1,0 +1,36 @@
+﻿@using LMS_Quadra.Domain.Entities
+@model CourseCompletion
+
+<div id="wrapper">
+    <div id="main">
+        <div class="inner">
+            <section>
+                <header class="major">
+                    <h2>Лучший результат по курсу: @ViewBag.CourseTitle</h2>
+                </header>
+
+                @if (Model != null)
+                {
+                    <div class="alert alert-success">
+                        <h4>Сотрудник: @Model.Worker.Name</h4>
+                        <p class="mb-0">
+                            Результат: <strong>@Model.Result%</strong><br>
+                            Дата прохождения: @Model.DateCompleted?.ToString("dd.MM.yyyy")
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-warning">
+                        Курс ещё не был пройден сотрудниками
+                    </div>
+                }
+
+                <a asp-action="CourseTopResultReport" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Выбрать другой курс
+                </a>
+            </section>
+        </div>
+    </div>
+    @await Html.PartialAsync("_SidebarPartial")
+</div>

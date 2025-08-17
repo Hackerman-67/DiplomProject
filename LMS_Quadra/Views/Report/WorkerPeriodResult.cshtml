@@ -1,0 +1,31 @@
+﻿@using LMS_Quadra.Domain.Entities
+@model Tuple<Worker, int>
+
+<div id="wrapper">
+    <div id="main">
+        <div class="inner">
+            <section>
+                <header class="major">
+                    <h2>Результаты за период: @ViewBag.Period</h2>
+                </header>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@Model.Item1.Name</h5>
+                        <p class="card-text">
+                            Должность: @Model.Item1.WorkerPosition?.Title<br>
+                            Отдел: @Model.Item1.Department?.Title
+                        </p>
+                        <div class="alert @(Model.Item2 > 0 ? "alert-success" : "alert-warning")">
+                            Пройдено курсов: <strong>@Model.Item2</strong>
+                        </div>
+                        <a asp-action="WorkerPeriodReport" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Назад
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    @await Html.PartialAsync("_SidebarPartial")
+</div>
